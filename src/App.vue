@@ -1,31 +1,16 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <ais-index
+    app-id="latency"
+    api-key="3d9875e51fbd20c7754e65422f7ce5e1"
+    index-name="bestbuy"
+  >
+    <ais-search-box></ais-search-box>
+    <ais-results>
+      <template slot-scope="{ result }">
+        <h2>
+          <ais-highlight :result="result" attribute-name="name"></ais-highlight>
+        </h2>
+      </template>
+    </ais-results>
+  </ais-index>
 </template>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
